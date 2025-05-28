@@ -15,7 +15,7 @@
             "role": "Developer"
         }
     ],
-    "version": "1.0.0",
+    "version": "1.0.1",
     "require": {
         "php": "^8.4",
         "illuminate/contracts": "^10.0||^11.0||^12.0",
@@ -36,14 +36,12 @@
     },
     "autoload": {
         "psr-4": {
-            "IBroStudio\\CommandPool\\": "src/",
-            "IBroStudio\\CommandPool\\Database\\Factories\\": "database/factories/"
+            "IBroStudio\\CommandPool\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "IBroStudio\\CommandPool\\Tests\\": "tests/",
-            "Workbench\\App\\": "workbench/app/"
+            "IBroStudio\\CommandPool\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -63,10 +61,7 @@
         "laravel": {
             "providers": [
                 "IBroStudio\\CommandPool\\CommandPoolServiceProvider"
-            ],
-            "aliases": {
-                "CommandPool": "IBroStudio\\CommandPool\\Facades\\CommandPool"
-            }
+            ]
         }
     },
     "minimum-stability": "dev",
