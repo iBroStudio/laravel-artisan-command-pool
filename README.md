@@ -78,6 +78,20 @@ class MyContractorCommand extends Command
     }
 ```
 
+## Run conditionally
+
+Add a `runIf` key with a closure returning a boolean:
+
+```php
+use IBroStudio\CommandPool\CommandPool;
+
+CommandPool::pool([
+    Command1::class => ['runIf' => fn (): bool => false],
+    Command2::class,
+])->run() // will run only Command2
+```
+
+
 ## Credits
 
 - [iBroStudio](https://github.com/iBroStudio)

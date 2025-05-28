@@ -6,6 +6,7 @@ use IBroStudio\CommandPool\CommandPoolServiceProvider;
 use IBroStudio\CommandPool\Tests\Support\Commands\Command1;
 use IBroStudio\CommandPool\Tests\Support\Commands\Command2;
 use IBroStudio\CommandPool\Tests\Support\Commands\Command3;
+use IBroStudio\CommandPool\Tests\Support\Commands\CommandFail;
 use IBroStudio\CommandPool\Tests\Support\Commands\Contractor;
 use Illuminate\Console\Application as Artisan;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -27,6 +28,7 @@ class TestCase extends Orchestra
                 Command1::class,
                 Command2::class,
                 Command3::class,
+                CommandFail::class,
             ]);
         });
     }
