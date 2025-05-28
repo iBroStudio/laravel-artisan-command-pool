@@ -1,5 +1,7 @@
 <?php
 
-use VendorName\Skeleton\Tests\TestCase;
+declare(strict_types=1);
 
-uses(TestCase::class)->in(__DIR__);
+use IBroStudio\CommandPool\Tests\TestCase;
+
+uses(TestCase::class)->in(__DIR__.'/Test');

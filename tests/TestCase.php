@@ -1,10 +1,15 @@
 <?php
 
-namespace VendorName\Skeleton\Tests;
+namespace IBroStudio\CommandPool\Tests;
 
+use IBroStudio\CommandPool\CommandPoolServiceProvider;
+use IBroStudio\CommandPool\Tests\Support\Commands\Command1;
+use IBroStudio\CommandPool\Tests\Support\Commands\Command2;
+use IBroStudio\CommandPool\Tests\Support\Commands\Command3;
+use IBroStudio\CommandPool\Tests\Support\Commands\Contractor;
+use Illuminate\Console\Application as Artisan;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use VendorName\Skeleton\SkeletonServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -13,14 +18,23 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'VendorName\\Skeleton\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'IBroStudio\\CommandPool\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
+
+        Artisan::starting(function ($artisan) {
+            $artisan->resolveCommands([
+                Contractor::class,
+                Command1::class,
+                Command2::class,
+                Command3::class,
+            ]);
+        });
     }
 
     protected function getPackageProviders($app)
     {
         return [
-            SkeletonServiceProvider::class,
+            CommandPoolServiceProvider::class,
         ];
     }
 
